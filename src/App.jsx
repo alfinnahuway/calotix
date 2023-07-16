@@ -1,11 +1,12 @@
-import { Card } from "flowbite-react";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
 	return (
 		<>
-			<Card classsName="w-[calc(100vw-5rem)] mx-auto" href="#">
-				<h1>ok</h1>
-			</Card>
+			<Routes>
+				<Route path="/" element={<Dashboard />} />
+			</Routes>
 		</>
 	);
 }
