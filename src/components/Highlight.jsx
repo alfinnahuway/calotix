@@ -1,13 +1,13 @@
 import Slider from "react-slick";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
-import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import "../../node_modules/react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 const Highlight = () => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
   };
 

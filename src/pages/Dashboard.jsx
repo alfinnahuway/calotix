@@ -1,12 +1,11 @@
-import Header from "../components/Header";
+import Public from "../layouts/Public";
 import Highlight from "../components/Highlight";
 
 const Dashboard = () => {
   return (
-    <>
-      <Header />
+    <Public>
       <Highlight />
-    </>
+    </Public>
   );
 };
 
