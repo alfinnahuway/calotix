@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+  body {
+    @apply bg-stone-950; 
+	@apply text-stone-50;
+  }
+}
+
+
 @layer utilities {
 	.slick-prev:before,
 	.slick-next:before {
