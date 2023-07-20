@@ -13,7 +13,7 @@ export default function Footerlocal() {
                     </div>
                     <div className="grid grid-cols-1 gap-16 md:gap-8 sm:gap-6 sm:grid-cols-2">
                         <div>
-                            <h2 className="mb-6 px-4 text-sm font-semibold uppercase text-stone-100">Home</h2>
+                            <h2 className="mb-6 px-4 text-sm font-semibold uppercase text-stone-100">Halaman</h2>
                             <ul className="text-stone-200 font-medium">
                                 <li className="mb-4">
                                     <a href="https://flowbite.com/" className="rounded-lg py-2 px-4 hover:bg-orange-600">Home</a>
@@ -69,14 +69,14 @@ export default function Footerlocal() {
                         <div>
                             <h2 className="mb-6 px-4 text-sm font-semibold uppercase text-stone-100">Payment Methods</h2>
                             <ul className="text-stone-200 font-medium pl-4">
-                                <li className="w-2/3 mb-4">
+                                <li className="w-3/12  mb-2">
                                     <a href="https://www.ovo.id">
-                                        <img src="https://blogpictures.99.co/cara-menggunakan-ovo.jpg" alt="ovo" className="rounded-md w-full h-auto" />
+                                        <img src="/svg/ovo.svg" alt="ovo" className="rounded-md w-full h-auto bg-white p-6" />
                                     </a>
                                 </li>
-                                <li className="w-2/3">
+                                <li className="w-3/12">
                                     <a href="https://gopay.co.id">
-                                        <img src="https://image.cermati.com/v1585904886/o81yliwckjhywelnx13a.png" alt="gopay" className="bg-white p-4 py-8 rounded-md w-full h-auto" />
+                                        <img src="/svg/gopay.svg" alt="gopay" className="bg-white p-4 py-8 rounded-md w-full h-auto" />
                                     </a>
                                 </li>
                             </ul>
