@@ -2,6 +2,8 @@
 
 Calo Tiket adalah proyek konser tiket yang sedang dalam pengembangan. Proyek ini ditujukan untuk membuat sebuah platform yang memungkinkan pengguna untuk membeli tiket konser secara online. Saat ini, proyek ini masih berbasis HTML, CSS, dan menggunakan framework Tailwind CSS.
 
+Link Netlify : <https://calo-tix.netlify.app/>
+
 ## Pembagian Tugas
 
 Berikut adalah pembagian tugas untuk pengembangan proyek Calo Tiket:
