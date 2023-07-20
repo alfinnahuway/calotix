@@ -8,9 +8,9 @@
     @apply !text-gray-600;
   }
   .slick-list {
-    @apply h-full my-0 mx-[-15px];
+    @apply h-full my-0 mx-[-10px];
   }
   .slick-slide > div {
-    @apply my-0 mx-[15px];
+    @apply my-0 mx-[10px];
   }
 }
