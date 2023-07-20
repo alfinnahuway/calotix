@@ -6,10 +6,10 @@ export default function Footerlocal() {
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0 px-4 md:px-0 py-12">
                         <a href="https://flowbite.com/" className="flex items-center mb-8">
-                            <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="FlowBite Logo" />
-                            <span className="self-center text-2xl font-semibold whitespace-nowrap text-stone-100">Flowbite</span>
+                            <img src="/logo.svg" className="h-8 mr-3" alt="FlowBite Logo" />
+                            <span className="self-center text-2xl font-semibold whitespace-nowrap text-stone-100">CaloTix</span>
                         </a>
-                        <p className="lg:w-3/4">KiosTix is a web-based platform that provides thousands of entertainment experiences worldwide. Create the best experiences with KiosTix!</p>
+                        <p className="lg:w-3/4">CaloTix adalah platform berbasis web untuk memesan tiket di konser artis kesayanganmu.</p>
                     </div>
                     <div className="grid grid-cols-1 gap-16 md:gap-8 sm:gap-6 sm:grid-cols-2">
                         <div>
