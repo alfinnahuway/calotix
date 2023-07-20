@@ -12,11 +12,14 @@
 
 
 @layer utilities {
-	.slick-prev:before,
-	.slick-next:before {
-		@apply !text-gray-600;
-	}
-	.slick-list {
-		@apply h-full;
-	}
+  .slick-prev:before,
+  .slick-next:before {
+    @apply !text-gray-600;
+  }
+  .slick-list {
+    @apply h-full my-0 mx-[-10px];
+  }
+  .slick-slide > div {
+    @apply my-0 mx-[10px];
+  }
 }
