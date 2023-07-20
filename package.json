@@ -17,6 +17,7 @@
     "jquery": "^3.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-lite-youtube-embed": "^2.3.52",
     "react-router-dom": "^6.14.1",
     "react-slick": "^0.29.0",
