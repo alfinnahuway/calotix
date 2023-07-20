@@ -1,11 +1,12 @@
 import { Navbar } from "flowbite-react";
-
+import Footerlocal from "../components/Footer";
 const Public = ({ children }) => {
   return (
-    <section>
+    <main>
       <Navbar />
       {children}
-    </section>
+      <Footerlocal />
+    </main>
   );
 };
 
