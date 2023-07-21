@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        heroblack: "#202020ab",
+      },
       screens: {
         sm: "640px",
         // => @media (min-width: 640px) { ... }
