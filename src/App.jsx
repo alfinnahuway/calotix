@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 function App() {
-  return (
-    <>
-      <Helmet>
+	return (
+		<>
+			{/* <Helmet>
         <meta charSet="utf-8" />
         <title>Calo Tiket - Proyek Konser Tiket</title>
         <link
@@ -15,12 +15,12 @@ function App() {
           name="description"
           content="CaloTix adalah platform berbasis web untuk memesan tiket di konser artis kesayanganmu."
         />
-      </Helmet>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-      </Routes>
-    </>
-  );
+      </Helmet> */}
+			<Routes>
+				<Route path="/" element={<Dashboard />} />
+			</Routes>
+		</>
+	);
 }
 
 export default App;
