@@ -12,7 +12,7 @@ const Highlight = () => {
 
   const createCards = (id, link, title, description) => {
     return (
-      <div key={id} className="w-full flex flex-col shadow-lg">
+      <div key={id} className="w-full flex flex-col bg-black">
         <div className="w-full">
           <LiteYouTubeEmbed
             id={link}
@@ -23,8 +23,8 @@ const Highlight = () => {
             wrapperClass="yt-lite"
           />
         </div>
-        <div className="w-full h-full flex flex-col p-4 border shadow-lg">
-          <h1>{title}</h1>
+        <div className="w-full h-40 flex flex-col p-4">
+          <h1 className="line-clamp-2">{title}</h1>
           <p>{description}</p>
         </div>
       </div>
@@ -47,7 +47,7 @@ const Highlight = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
@@ -89,12 +89,6 @@ const Highlight = () => {
   // Mendapatkan properti slidesToShow berdasarkan responsif
   let slidesToShow = 1; // Nilai default jika tidak ada responsif yang cocok
 
-  useEffect(() => {
-    console.log(currentWidth);
-
-    console.log(slidesToShow);
-  }, [currentWidth]);
-
   for (const responsiveSetting of settings.responsive) {
     if (currentWidth <= responsiveSetting.breakpoint) {
       slidesToShow = responsiveSetting.settings.slidesToShow;
@@ -104,11 +98,11 @@ const Highlight = () => {
   return (
     <>
       <section className="w-full">
-        <main className="lg:w-[80%] max-md:w-[85%] sm:w-[95%] mx-auto">
+        <main className="container mx-auto">
           <div className="w-full h-16 flex justify-end gap-5 px-4 max-sm:hidden">
             <button
               className={`hover:text-gray-600 ${
-                index === 0 ? "text-gray-400" : ""
+                index === 0 ? "text-gray-400" : "text-orange-600"
               }`}
               onClick={previous}
               disabled={index === 0}
@@ -117,7 +111,7 @@ const Highlight = () => {
             </button>
             <button
               className={`hover:text-gray-600 ${
-                index === slidesToShow ? "text-gray-400" : ""
+                index === slidesToShow ? "text-gray-400" : "text-orange-600"
               }`}
               onClick={next}
               disabled={index === slidesToShow}

@@ -20,6 +20,14 @@ export default {
         lg: "1024px",
         // => @media (min-width: 1280px) { ... }
       },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          md: "2rem",
+          lg: "3rem",
+        },
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
