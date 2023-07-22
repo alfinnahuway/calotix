@@ -1,10 +1,10 @@
 import { Carousel } from "flowbite-react";
-import img1 from "../assets/img/backgroundSlider-00.jpg";
-import img2 from "../assets/img/backgroundSlider-01.jpg";
-import img3 from "../assets/img/backgroundSlider-02.jpg";
-import img4 from "../assets/img/backgroundSlider-03.jpg";
-import img5 from "../assets/img/backgroundSlider-04.jpg";
-import img6 from "../assets/img/backgroundSlider-05.jpg";
+import img1 from "../assets/img/backgroundslider-00.jpg";
+import img2 from "../assets/img/backgroundslider-01.jpg";
+import img3 from "../assets/img/backgroundslider-02.jpg";
+import img4 from "../assets/img/backgroundslider-03.jpg";
+import img5 from "../assets/img/backgroundslider-04.jpg";
+import img6 from "../assets/img/backgroundslider-05.jpg";
 
 export default function SlidingInterval() {
   return (
