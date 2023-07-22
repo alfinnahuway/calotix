@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center h-20 px-4">
+      <div className="flex justify-between items-center h-20 px-5">
         <div>
           <a href="/" onClick={handleNav} className={logo ? "hidden" : "flex "}>
             <img src="./public/logo.svg" alt="" width={45} />
@@ -49,21 +49,31 @@ const Header = () => {
           onClick={handleNav}
           className={
             nav
-              ? "absolute left-0 top-0 w-full bg-gray-100/90 px-4 py-7  flex flex-col z-10"
-              : "absolute left-[100%] -z-20"
+              ? "absolute left-0 top-0 w-full bg-stone-50 px-4 py-7 flex flex-col z-10 h-screen"
+              : "hidden"
           }
         >
           <ul className="">
             <button>
               <a href="/" className="flex">
                 <img src="./public/logo.svg" alt="" width={45} />
-                <span className="text-3xl md:text-4xl font-bold">Calo.Tix</span>
+                <span className="text-3xl md:text-4xl font-bold text-black">
+                  Calo.Tix
+                </span>
               </a>
             </button>
-            <li className="p-4 text-xl border-b">Home</li>
-            <li className="p-4 text-xl border-b">Event</li>
-            <li className="p-4 text-xl border-b">Schedule</li>
-            <li className="p-4 text-xl border-b">About us</li>
+            <li className="p-4 text-xl border-b text-black font-semibold">
+              Home
+            </li>
+            <li className="p-4 text-xl border-b text-black font-semibold">
+              Event
+            </li>
+            <li className="p-4 text-xl border-b text-black font-semibold">
+              Schedule
+            </li>
+            <li className="p-4 text-xl border-b text-black font-semibold">
+              About us
+            </li>
             <div className="flex flex-col">
               <button className="p-3 border bg-slate-500 text-white rounded-md ">
                 Daftar
