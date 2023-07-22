@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        jose: ["Josefin Sans", "sans-serif"],
+      },
       colors: {
         heroblack: "#202020ab",
       },
