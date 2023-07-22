@@ -8,7 +8,7 @@ import img6 from "../assets/img/backgroundSlider-05.jpg";
 
 export default function SlidingInterval() {
   return (
-    <Carousel slideInterval={5000} className="w-full h-auto">
+    <Carousel slideInterval={5000} className="w-full h-auto md:h-[40vh]">
       <div className="relative flex flex-col">
         <img alt="..." src={img1} />
         <div className=" opacity-0 bg-heroblack absolute w-full h-full flex justify-center items-center hover:opacity-100 transition duration-700 ease-in-out">
@@ -35,7 +35,7 @@ export default function SlidingInterval() {
         <img alt="..." src={img4} />
         <div className=" opacity-0 bg-heroblack absolute w-full h-full flex justify-center items-center hover:opacity-100 transition duration-700 ease-in-out">
           <h1 className="text-white text-3xl font-bold font-jose ">
-            Arctics Monkey
+            Arctic Monkeys
           </h1>
         </div>
       </div>
