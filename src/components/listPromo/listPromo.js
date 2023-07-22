@@ -1,4 +1,4 @@
-export const slides = [
+export const images = [
   {
     imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFVQ_E4KAvs8A1K-aYAOApTsjXO9j9cGy7hrqjPYYklNHHj8eW7kTxRK-tZ2ZuZ7p0Pv0&usqp=CAU",
   },
