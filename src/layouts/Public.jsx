@@ -1,9 +1,9 @@
-import { Navbar } from "flowbite-react";
 import Footerlocal from "../components/Footer";
+import Header from "../components/Header";
 const Public = ({ children }) => {
   return (
     <main>
-      <Navbar />
+      <Header />
       {children}
       <Footerlocal />
     </main>
