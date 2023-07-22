@@ -12,7 +12,10 @@ const Highlight = () => {
 
   const createCards = (id, link, title, description) => {
     return (
-      <div key={id} className="w-full flex flex-col bg-black">
+      <div
+        key={id}
+        className="w-full flex flex-col bg-[#656565] rounded-lg overflow-hidden shadow-md shadow-black"
+      >
         <div className="w-full">
           <LiteYouTubeEmbed
             id={link}
@@ -23,7 +26,7 @@ const Highlight = () => {
             wrapperClass="yt-lite"
           />
         </div>
-        <div className="w-full h-40 flex flex-col p-4">
+        <div className="w-full h-40 flex flex-col p-4 font-semibold">
           <h1 className="line-clamp-2">{title}</h1>
           <p>{description}</p>
         </div>
