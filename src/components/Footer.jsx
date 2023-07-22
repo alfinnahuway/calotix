@@ -1,12 +1,12 @@
 export default function Footerlocal() {
   return (
-    <footer className="text-stone-50 bg-stone-950">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer className="container mx-auto w-full text-stone-50 bg-stone-950">
+      <div className=" p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0 px-4 md:px-0 py-12">
+          <div className="mb-6 md:mb-0 lg:px-4 md:px-0 py-12">
             <a href="https://flowbite.com/" className="flex items-center mb-8">
               <img src="/logo.svg" className="h-8 mr-3" alt="FlowBite Logo" />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap text-stone-100 font-jose">
+              <span className="self-center text-2xl font-semibold whitespace-nowrap text-stone-100">
                 CaloTix
               </span>
             </a>
@@ -15,16 +15,16 @@ export default function Footerlocal() {
               artis kesayanganmu.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-16 md:gap-8 sm:gap-6 sm:grid-cols-2">
-            <div>
-              <h2 className="mb-6 px-4 text-sm font-semibold uppercase text-stone-100">
+          <div className="grid grid-cols-1 gap-16 md:gap-8 sm:gap-6 md:grid-cols-2 md:py-12 ">
+            <div className=" ">
+              <h2 className="mb-6 text-sm font-bold uppercase text-orange-400">
                 Halaman
               </h2>
-              <ul className="text-stone-200 font-medium">
+              <ul className="text-stone-200 font-normal">
                 <li className="mb-4">
                   <a
                     href="https://flowbite.com/"
-                    className="rounded-lg py-2 px-4 hover:bg-orange-600"
+                    className="rounded-lg py-2  hover:bg-orange-600"
                   >
                     Home
                   </a>
@@ -32,7 +32,7 @@ export default function Footerlocal() {
                 <li>
                   <a
                     href="https://tailwindcss.com/"
-                    className="rounded-lg py-2 px-4 hover:bg-orange-600"
+                    className="rounded-lg py-2  hover:bg-orange-600"
                   >
                     Event Terbaru
                   </a>
@@ -40,10 +40,10 @@ export default function Footerlocal() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 px-4 text-sm font-semibold uppercase text-stone-100">
+              <h2 className="mb-6  text-sm font-bold uppercase text-orange-400">
                 Follow us
               </h2>
-              <div className="flex mt-4 gap-4 pl-4 sm:mt-0">
+              <div className="flex mt-4  gap-4 sm:mt-0">
                 <a
                   href="#"
                   className="text-stone-50 hover:hover:text-stone-100"
@@ -130,14 +130,13 @@ export default function Footerlocal() {
                   </svg>
                   <span className="sr-only">Dribbble account</span>
                 </a>
-                {/* ... */}
               </div>
             </div>
             <div>
-              <h2 className="mb-6 px-4 text-sm font-semibold uppercase text-stone-100">
+              <h2 className="mb-6  text-sm font-bold uppercase text-orange-400">
                 Payment Methods
               </h2>
-              <ul className="text-stone-200 font-medium pl-4">
+              <ul className="text-stone-200 font-medium ">
                 <li className="w-3/12  mb-2">
                   <a href="https://www.ovo.id">
                     <img
@@ -159,23 +158,17 @@ export default function Footerlocal() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 px-4 text-sm font-semibold uppercase text-stone-100">
+              <h2 className="mb-6  text-sm font-bold uppercase text-orange-400">
                 Legal
               </h2>
-              <ul className="text-stone-200 font-medium">
+              <ul className="text-stone-200 font-normal">
                 <li className="mb-4">
-                  <a
-                    href="#"
-                    className="rounded-lg py-2 px-4 hover:bg-orange-600"
-                  >
+                  <a href="#" className="rounded-lg py-2  hover:bg-orange-600">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="rounded-lg py-2 px-4 hover:bg-orange-600"
-                  >
+                  <a href="#" className="rounded-lg py-2  hover:bg-orange-600">
                     Terms &amp; Conditions
                   </a>
                 </li>
@@ -184,18 +177,15 @@ export default function Footerlocal() {
           </div>
         </div>
       </div>
-      <hr className="my-6 border-stone-200 sm:mx-auto border-stone-700 lg:my-8" />
-      <div className="flex mx-auto w-full max-w-screen-xl items-center justify-between py-4">
-        <span className="px-4 text-sm text-stone-50 sm:text-center text-stone-200">
-          © 2023{" "}
-          <a
-            href="https://flowbite.com/"
-            className="rounded-lg py-2 px-4 hover:bg-orange-600"
-          >
-            CaloTix™
-          </a>{" "}
-          All Rights Reserved.
-        </span>
+      {/* <hr className="my-6 border-stone-200 sm:mx-auto border-stone-700 lg:my-8" /> */}
+      <div className="text-stone-400  flex flex-col lg:flex-row px-4 mx-auto w-full md:items-center md:justify-between mb-4 py-4">
+        <a
+          href="https://flowbite.com/"
+          className="rounded-lg lg:py-2 lg:px-4 hover:bg-orange-600"
+        >
+          kelompok 4 FSD HARISENIN
+        </a>
+        © 2023 All Rights Reserved.
       </div>
     </footer>
   );
