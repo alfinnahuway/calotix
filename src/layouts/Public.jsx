@@ -11,3 +11,7 @@ const Public = ({ children }) => {
 };
 
 export default Public;
+
+Public.propTypes = {
+	children: PropTypes.node,
+};

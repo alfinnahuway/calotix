@@ -10,6 +10,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        jose: ["Josefin Sans", "sans-serif"],
+      },
+      colors: {
+        heroblack: "#202020ab",
+      },
       screens: {
         sm: "640px",
         // => @media (min-width: 640px) { ... }
