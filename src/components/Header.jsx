@@ -1,6 +1,7 @@
 import { Navbar as NavbarBase, Button } from "flowbite-react";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import { faUser, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import Logo from "/logo.svg";
 
 const Navbar = () => {
   return (
@@ -10,11 +11,7 @@ const Navbar = () => {
       className="!bg-black sticky top-0 !rounded-none z-[9999]"
     >
       <NavbarBase.Brand href="/">
-        <img
-          alt="Flowbite React Logo"
-          className="mr-3 h-6 sm:h-9"
-          src="./public/logo.svg"
-        />
+        <img alt="Flowbite React Logo" className="mr-3 h-6 sm:h-9" src={Logo} />
         <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
           Calo.Tix
         </span>
