@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-// import { Helmet } from "react-helmet";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 function App() {
   return (
