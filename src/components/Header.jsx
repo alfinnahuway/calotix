@@ -4,7 +4,7 @@ import { faUser, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
 	return (
-		<NavbarBase fluid rounded className="!bg-slate-200 sticky top-0 !rounded-none">
+		<NavbarBase fluid rounded className="!bg-slate-200 sticky top-0 !rounded-none z-[9999]">
 			<NavbarBase.Brand href="https://flowbite-react.com">
 				<img alt="Flowbite React Logo" className="mr-3 h-6 sm:h-9" src="./public/logo.svg" />
 				<span className="self-center whitespace-nowrap text-xl font-semibold text-black">Calo.Tix</span>
