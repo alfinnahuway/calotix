@@ -1,5 +1,7 @@
 import Footerlocal from "../components/Footer";
 import Header from "../components/Header";
+import PropTypes from "prop-types";
+
 const Public = ({ children }) => {
 	return (
 		<main>
