@@ -7,6 +7,7 @@ const Public = ({ children }) => {
     <main>
       <Navbar />
       {children}
+
       <Footerlocal />
     </main>
   );
