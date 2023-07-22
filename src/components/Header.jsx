@@ -1,85 +1,45 @@
-import { useState } from "react";
-
+import { Navbar as NavbarBase, Button } from "flowbite-react";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faMagnifyingGlass,
-  faBars,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const Header = () => {
-  const [nav, setNav] = useState(false);
-  const [logo, setLogo] = useState(false);
-  const handleNav = () => {
-    setNav(!nav);
-    setLogo(!logo);
-  };
-
-  return (
-    <>
-      <div className="flex justify-between items-center h-20 px-4">
-        <div>
-          <a href="/" onClick={handleNav} className={logo ? "hidden" : "flex "}>
-            <img src="./public/logo.svg" alt="" width={45} />
-            <span className="text-3xl md:text-4xl font-bold">Calo.Tix</span>
-          </a>
-        </div>
-        <ul className="hidden md:flex">
-          <li className="p-4">Home</li>
-          <li className="p-4">Event</li>
-          <li className="p-4">Schedule</li>
-          <li className="p-4">About us</li>
-        </ul>
-        <div className="hidden md:flex">
-          <Icon icon={faMagnifyingGlass} size="lg" className="mr-4" />
-          <Icon icon={faUser} size="lg" />
-        </div>
-
-        {/* Hamburger */}
-        <div onClick={handleNav} className="md:hidden">
-          {nav ? (
-            <Icon icon={faXmark} size="xl" />
-          ) : (
-            <Icon icon={faBars} size="xl" />
-          )}
-        </div>
-        {/* Mobile Menu Dropdown */}
-        <div
-          onClick={handleNav}
-          className={
-            nav
-              ? "absolute left-0 top-0 w-full bg-gray-100/90 px-4 py-7  flex flex-col z-10"
-              : "absolute left-[100%] -z-20"
-          }
-        >
-          <ul className="">
-            <button>
-              <a href="/" className="flex">
-                <img src="./public/logo.svg" alt="" width={45} />
-                <span className="text-3xl md:text-4xl font-bold">Calo.Tix</span>
-              </a>
-            </button>
-            <li className="p-4 text-xl border-b">Home</li>
-            <li className="p-4 text-xl border-b">Event</li>
-            <li className="p-4 text-xl border-b">Schedule</li>
-            <li className="p-4 text-xl border-b">About us</li>
-            <div className="flex flex-col">
-              <button className="p-3 border bg-slate-500 text-white rounded-md ">
-                Daftar
-              </button>
-              <button className="p-3 border bg-slate-500 text-white rounded-md my-6">
-                Masuk
-              </button>
-              <button className="p-3 border bg-slate-500 text-white rounded-md ">
-                Search
-              </button>
-            </div>
-          </ul>
-        </div>
-      </div>
-    </>
-  );
+const Navbar = () => {
+	return (
+		<NavbarBase fluid rounded className="!bg-slate-200 sticky top-0 !rounded-none">
+			<NavbarBase.Brand href="https://flowbite-react.com">
+				<img alt="Flowbite React Logo" className="mr-3 h-6 sm:h-9" src="./public/logo.svg" />
+				<span className="self-center whitespace-nowrap text-xl font-semibold text-black">Calo.Tix</span>
+			</NavbarBase.Brand>
+			<div className="flex md:order-2">
+				<div className="hidden md:flex">
+					<Icon icon={faMagnifyingGlass} size="lg" className="mr-4" />
+					<Icon icon={faUser} size="lg" />
+				</div>
+				<NavbarBase.Toggle />
+			</div>
+			<NavbarBase.Collapse>
+				<div className="flex gap-2 md:hidden">
+					<Button outline color="warning" className="flex-1">
+						Daftar
+					</Button>
+					<Button color="warning" className="flex-1">
+						Masuk
+					</Button>
+				</div>
+				<NavbarBase.Link href="#" className="text-base !text-gray-900">
+					Home
+				</NavbarBase.Link>
+				<NavbarBase.Link href="#" className="text-base !text-gray-900">
+					Event
+				</NavbarBase.Link>
+				<NavbarBase.Link href="#" className="text-base !text-gray-900">
+					Schedule
+				</NavbarBase.Link>
+				<NavbarBase.Link href="#" className="text-base !text-gray-900">
+					About us
+				</NavbarBase.Link>
+			</NavbarBase.Collapse>
+		</NavbarBase>
+	);
 };
 
-export default Header;
+export default Navbar;
