@@ -18,9 +18,9 @@ const Promo = () => {
 
   return (
     <div>
-      <div className="mx-5">
-        <h1 className="font-extrabold max-w-[1184px] mx-auto text-xl mb-2 mt-5">Promo Terbaru</h1>
-        <div style={{backgroundImage: `url(${images[currentImage].imgUrl})` }} className="mx-auto max-w-[1184px] h-[200px] md:h-[600px] rounded-sm bg-center bg-cover duration-500 relative py-10">
+      <div className="container">
+        <h1 className="font-extrabold mx-auto text-xl mb-2 mt-5">Promo Terbaru</h1>
+        <div style={{ backgroundImage: `url(${images[currentImage].imgUrl})` }} className="mx-auto h-[200px] md:h-[400px] rounded-sm bg-center bg-cover duration-500 relative py-10">
           <div className="text-stone-50 absolute top-[50%] hover:bg-black/50 left-2 cursor-pointer">
             <FaChevronLeft onClick={prevImage} size={20} />
           </div>

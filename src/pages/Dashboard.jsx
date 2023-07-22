@@ -4,8 +4,8 @@ import Promo from "../components/Promo"
 const Dashboard = () => {
   return (
     <Public>
-      <Highlight />
       <Promo />
+      <Highlight />
     </Public>
   );
 };
