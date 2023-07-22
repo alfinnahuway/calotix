@@ -13,7 +13,7 @@ const Highlight = () => {
     return (
       <div
         key={id}
-        className="w-full flex flex-col bg-[#656565] rounded-lg overflow-hidden shadow-md shadow-black"
+        className="w-full flex flex-col bg-stone-800 border border-[#656565] overflow-hidden shadow-sm-light shadow-[#25201b]"
       >
         <div className="w-full">
           <LiteYouTubeEmbed
@@ -49,7 +49,7 @@ const Highlight = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
     arrows: false,
@@ -89,7 +89,7 @@ const Highlight = () => {
   const currentWidth = window.innerWidth;
 
   // Mendapatkan properti slidesToShow berdasarkan responsif
-  let slidesToShow = 1; // Nilai default jika tidak ada responsif yang cocok
+  let slidesToShow = 2; // Nilai default jika tidak ada responsif yang cocok
 
   for (const responsiveSetting of settings.responsive) {
     if (currentWidth <= responsiveSetting.breakpoint) {
