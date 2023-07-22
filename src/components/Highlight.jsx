@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "../../node_modules/react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, } from "react";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { highlightList } from "./highlight-list/highLightList";
