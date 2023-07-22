@@ -7,9 +7,9 @@ const Navbar = () => {
     <NavbarBase
       fluid
       rounded
-      className="!bg-stone-500 sticky top-0 !rounded-none z-[9999]"
+      className="!bg-black sticky top-0 !rounded-none z-[9999]"
     >
-      <NavbarBase.Brand href="https://flowbite-react.com">
+      <NavbarBase.Brand href="/">
         <img
           alt="Flowbite React Logo"
           className="mr-3 h-6 sm:h-9"
@@ -25,11 +25,14 @@ const Navbar = () => {
             icon={faMagnifyingGlass}
             size="lg"
             className="mr-4"
-            color="black"
+            color="white"
           />
-          <Icon icon={faUser} size="lg" color="black" />
+          <Icon icon={faUser} size="lg" color="white" />
         </div>
-        <NavbarBase.Toggle className="hover:!bg-transparent focus:!ring-0" />
+        <NavbarBase.Toggle
+          color="orange"
+          className="hover:!bg-transparent focus:!ring-0"
+        />
       </div>
       <NavbarBase.Collapse className="!pb-2 ">
         <div className="flex gap-2 md:hidden">
@@ -41,32 +44,32 @@ const Navbar = () => {
           </Button>
           <Button
             color=""
-            className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent"
+            className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
           >
             Masuk
           </Button>
         </div>
         <NavbarBase.Link
           href="#"
-          className="text-base !text-gray-900 hover:!text-orange-400 hover:!bg-transparent"
+          className="text-base !text-white  hover:!text-orange-400 hover:!bg-transparent"
         >
           Home
         </NavbarBase.Link>
         <NavbarBase.Link
           href="#"
-          className="text-base !text-orange-400 hover:!text-orange-400 hover:!bg-transparent"
+          className="text-base !text-white hover:!text-orange-400 hover:!bg-transparent"
         >
           Event
         </NavbarBase.Link>
         <NavbarBase.Link
           href="#"
-          className="text-base !text-gray-900 hover:!text-orange-400 hover:!bg-transparent"
+          className="text-base !text-white  hover:!text-orange-400 hover:!bg-transparent"
         >
           Schedule
         </NavbarBase.Link>
         <NavbarBase.Link
           href="#"
-          className="text-base !text-gray-900 hover:!text-orange-400 hover:!bg-transparent"
+          className="text-base !text-white  hover:!text-orange-400 hover:!bg-transparent"
         >
           About us
         </NavbarBase.Link>
