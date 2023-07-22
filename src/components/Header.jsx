@@ -1,6 +1,4 @@
 import { Navbar as NavbarBase, Button } from "flowbite-react";
-import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
-import { faUser, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Logo from "/logo.svg";
 
 const Navbar = () => {
@@ -17,14 +15,19 @@ const Navbar = () => {
         </span>
       </NavbarBase.Brand>
       <div className="flex md:order-2">
-        <div className="hidden md:flex">
-          <Icon
-            icon={faMagnifyingGlass}
-            size="lg"
-            className="mr-4"
-            color="white"
-          />
-          <Icon icon={faUser} size="lg" color="white" />
+        <div className="hidden md:flex gap-2">
+          <Button
+            color="transparent"
+            className="flex-1 !border-orange-400 border-2 !text-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0"
+          >
+            Daftar
+          </Button>
+          <Button
+            color=""
+            className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
+          >
+            Masuk
+          </Button>
         </div>
         <NavbarBase.Toggle
           color="orange"
