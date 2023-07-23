@@ -9,8 +9,8 @@ const Dashboard = () => {
     <Public>
       <Hero />
       <Events />
-      <Highlight />
       <Promo />
+      <Highlight />
     </Public>
   );
 };
