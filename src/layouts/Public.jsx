@@ -1,13 +1,12 @@
-import { Navbar } from "flowbite-react";
 import Footerlocal from "../components/Footer";
-import PropTypes from 'prop-types';
+import Header from "../components/Header";
+import PropTypes from "prop-types";
 
 const Public = ({ children }) => {
   return (
     <main>
-      <Navbar />
-      {children}
-
+      <Header />
+      <div className="pt-10">{children}</div>
       <Footerlocal />
     </main>
   );
@@ -15,7 +14,6 @@ const Public = ({ children }) => {
 
 export default Public;
 
-
 Public.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
