@@ -13,10 +13,10 @@ const Highlight = () => {
     return (
       <div
         key={id}
-        className="w-full flex flex-col bg-neutral-900  border-zinc-800 overflow-hidden p-6 rounded-lg group relative"
+        className="w-full flex flex-col bg-neutral-950 border   border-zinc-800  p-6 rounded-lg group relative"
       >
-        <div class="left-0 absolute bottom-28 w-5 h-10 bg-[#0c0a09] rounded-e-3xl z-10"></div>
-        <div class="right-0 absolute bottom-28 w-5 h-10 bg-[#0c0a09] rounded-s-3xl z-10"></div>
+        <div class="-left-[1px] absolute bottom-28 w-5 h-10 bg-[#0c0a09] border-t border-t-zinc-800 border-b border-b-zinc-800 border-r border-r-zinc-800 rounded-e-3xl z-10"></div>
+        <div class="-right-[1px] absolute bottom-28 w-5 h-10 bg-[#0c0a09] rounded-s-3xl z-10 border-t border-t-zinc-800 border-b border-b-zinc-800 border-l border-l-zinc-800"></div>
         <div className="w-full rounded-lg overflow-hidden border border-zinc-800 shadow-sm group-hover:shadow-orange-400">
           <LiteYouTubeEmbed
             id={link}
