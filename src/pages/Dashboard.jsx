@@ -5,14 +5,14 @@ import Promo from "../components/Promo";
 import Public from "../layouts/Public";
 
 const Dashboard = () => {
-	return (
-		<Public>
-			<Hero />
-			<Events />
-			<Promo />
-			<Highlight />
-		</Public>
-	);
+  return (
+    <Public>
+      <Hero />
+      <Events />
+      <Highlight />
+      <Promo />
+    </Public>
+  );
 };
 
 export default Dashboard;
