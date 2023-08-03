@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import DetailEvent from "./pages/Detail.Event";
+
 function App() {
   return (
     <>
@@ -8,10 +10,7 @@ function App() {
         <Helmet>
           <meta charSet="utf-8" />
           <title>Calo Tiket - Proyek Konser Tiket</title>
-          <link
-            rel="canonical"
-            href="https://calo-tix.netlify.app/"
-          />
+          <link rel="canonical" href="https://calo-tix.netlify.app/" />
           <meta
             name="description"
             content="CaloTix adalah platform berbasis web untuk memesan tiket di konser artis kesayanganmu."
@@ -19,6 +18,7 @@ function App() {
         </Helmet>
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/detail/:id" element={<DetailEvent />} />
         </Routes>
       </HelmetProvider>
     </>
