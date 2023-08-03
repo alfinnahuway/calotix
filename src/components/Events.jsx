@@ -203,12 +203,12 @@ const Events = () => {
         <div className="w-full flex justify-between items-center p-4">
           <h1 className="w-full text-xl font-bold">Event Terbaru</h1>
           <div
-            className={`w-full  justify-end gap-5 md:hidden sm:hidden lg:flex ${
+            className={`w-full flex  justify-end gap-5 max-md:hidden max-sm:hidden  ${
               loading && "hidden"
             }`}
           >
             <button
-              className={`hover:text-gray-600 ${
+              className={`hover:text-gray-600   ${
                 index === 0 ? "text-gray-400" : "text-[#e37027]"
               }`}
               onClick={previous}
@@ -217,7 +217,7 @@ const Events = () => {
               <Icon icon={faAngleLeft} size="xl" />
             </button>
             <button
-              className={`hover:text-gray-600 ${
+              className={`hover:text-gray-600  ${
                 index >= lastIndex ? "text-gray-400" : "text-[#e37027]"
               }`}
               onClick={next}

@@ -23,7 +23,6 @@ const DCardTickets = (
 ) => {
   const incrementCounter = () => {
     if (lastClickedId !== id) {
-      // Reset the counter for the last clicked ID
       setCounter((prevCounter) => ({
         ...prevCounter,
         [lastClickedId]: 0,
@@ -38,7 +37,6 @@ const DCardTickets = (
 
   const decrementCounter = () => {
     if (lastClickedId !== id) {
-      // Reset the counter for the last clicked ID
       setCounter((prevCounter) => ({
         ...prevCounter,
         [lastClickedId]: 0,
@@ -97,8 +95,8 @@ const DLoading = () => {
 
   return (
     <>
-      <div className="w-full grid grid-cols-3 gap-5 mb-5 animate-pulse">
-        <div className="wful h-[40vh] col-span-2 mr-4 overflow-hidden rounded-md bg-[#2d2d30]"></div>
+      <div className="w-full grid lg:grid-cols-3 md:grid-cols-1 gap-5 mb-5 animate-pulse">
+        <div className="w-full h-[40vh] lg:col-span-2 mr-4 overflow-hidden rounded-md bg-[#2d2d30]"></div>
         <div className="w-full flex flex-col text-[#e4e6eb] bg-[#2d2d30] overflow-hidden rounded-md  p-4 gap-4">
           <div className="">
             <div className="w-48 h-4 bg-[#3e3e42] rounded-sm animate-pulse"></div>
@@ -110,8 +108,8 @@ const DLoading = () => {
           </div>
         </div>
       </div>
-      <div className="w-full grid grid-cols-3 gap-5 animate-pulse">
-        <div className="w-full col-span-2"></div>
+      <div className="w-full grid lg:grid-cols-3 sm:grid-cols-1 gap-5 animate-pulse">
+        <div className="w-full lg:col-span-2"></div>
         <div className="w-full h-full">
           <div className="w-full h-[41vh]flex flex-col gap-2  pr-5">
             {ticketComponents()}
