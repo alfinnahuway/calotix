@@ -46,6 +46,7 @@ const Events = () => {
     slidesToScroll: 1,
     initialSlide: 0,
     beforeChange: beforeChange,
+    swipe: loading ? false : true,
     arrows: false,
     // swipe: loading,
     responsive: [
@@ -71,10 +72,10 @@ const Events = () => {
         breakpoint: 480,
         settings: {
           initialSlide: 0,
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 1.5,
           arrows: false,
           adaptiveWidth: true,
+          swipeToSlide: true,
         },
       },
     ],
@@ -122,21 +123,21 @@ const Events = () => {
       <Link
         to={`/detail/${id}`}
         key={id}
-        className=" text-[#0e0c0a] bg-[#161618]  flex flex-col overflow-hidden shadow-sm-light shadow-[#0a0a0a] rounded-md  hover:shadow-orange-400 my-2"
+        className="w-full text-[#0e0c0a] bg-[#161618]  flex flex-col overflow-hidden shadow-sm-light shadow-[#0a0a0a] rounded-md  hover:shadow-orange-400 my-2"
       >
-        <div className="w-full h-40 overflow-hidden">
+        <div className="w-full lg:h-40 max-sm:h-32  overflow-hidden">
           <img className="w-full h-full" src={posterUrl1} alt="" />
         </div>
-        <div className="w-full h-2/5  flex flex-col px-4 py-3 gap-20 border-t  border-[#212124]">
-          <div className="w-full">
-            <p className="text-sm mb-3 text-slate-300">
+        <div className="w-full h-2/5 flex flex-col px-4 py-3 lg:gap-20 max-sm:gap-14 border-t  border-[#212124] ">
+          <div className="w-full ">
+            <p className="lg:text-sm max-sm:text-xs text-slate-300">
               <Icon className="mr-2" icon={faMapLocation} size="sm" />
               {location}
             </p>
-            <h1 className="line-clamp-1 font-semibold mb-1 text-slate-100">
+            <h1 className="line-clamp-1 font-semibold mb-1 text-slate-100 lg:text-base max-sm:text-sm">
               {headline}
             </h1>
-            <p className="text-sm text-slate-100">
+            <p className="lg:text-sm max-sm:text-xs text-slate-100">
               <Icon className="mr-2 text" icon={faCalendarDay} />
               {date}
             </p>
@@ -227,6 +228,7 @@ const Events = () => {
             </button>
           </div>
         </div>
+
         <Slider ref={sliderRef} {...settings}>
           {loading
             ? ELoadingCards()
