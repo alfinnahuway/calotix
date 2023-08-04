@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import DetailEvent from "./pages/Detail.Event";
+import LoginForm from "./pages/login";
+import RegisterForm from "./pages/register";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/detail/:id" element={<DetailEvent />} />
+          <Route path="/login/" element={<LoginForm />} />
+          <Route path="/register/" element={<RegisterForm />} />
         </Routes>
       </HelmetProvider>
     </>
