@@ -128,7 +128,7 @@ const Events = () => {
         <div className="w-full lg:h-40 max-sm:h-32  overflow-hidden">
           <img className="w-full h-full" src={posterUrl1} alt="" />
         </div>
-        <div className="w-full h-2/5 flex flex-col px-4 py-3 lg:gap-20 max-sm:gap-14 border-t  border-[#212124] ">
+        <div className="w-full h-2/5 flex flex-col px-4 py-3 lg:gap-20 md:gap-20 max-sm:gap-14 border-t  border-[#212124] ">
           <div className="w-full ">
             <p className="lg:text-sm max-sm:text-xs text-slate-300">
               <Icon className="mr-2" icon={faMapLocation} size="sm" />

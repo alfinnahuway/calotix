@@ -25,7 +25,7 @@ const DCardTickets = (
     if (lastClickedId !== id) {
       setCounter((prevCounter) => ({
         ...prevCounter,
-        [lastClickedId]: 0,
+        // [lastClickedId]: 0,
       }));
       setLastClickedId(id);
     }
@@ -39,11 +39,10 @@ const DCardTickets = (
     if (lastClickedId !== id) {
       setCounter((prevCounter) => ({
         ...prevCounter,
-        [lastClickedId]: 0,
+        // [lastClickedId]: 0,
       }));
       setLastClickedId(id);
     }
-
     if (counter[id] > 0) {
       setCounter((prevCounter) => ({
         ...prevCounter,
@@ -145,7 +144,8 @@ const DetailEvent = () => {
   const [loading, setLoading] = useState(true);
   const [counter, setCounter] = useState({});
   const [lastClickedId, setLastClickedId] = useState(null);
-  const [countVal, setCountVal] = useState(null);
+  const [checkoutData, setCheckoutData] = useState([]);
+  const [subtotal, setSubtotal] = useState(0);
 
   useEffect(() => {
     const getTicket = async () => {
@@ -162,7 +162,26 @@ const DetailEvent = () => {
       }
     };
     getTicket();
-  }, []);
+
+    const ticketSale = sale?.map((items) => items);
+    const includeData = [];
+    const subtotalTicket = Object.entries(counter).reduce((acc, [id, qty]) => {
+      const ticketSelection = ticketSale.find((items) => items.id == id);
+      if (qty > 0) {
+        acc += ticketSelection.price * qty;
+        includeData.push({
+          id: ticketSelection.id,
+          quantity: qty,
+          price: ticketSelection.price,
+          total: ticketSelection.price * qty,
+        });
+      }
+      return acc;
+    }, 0);
+    setCheckoutData(includeData);
+    setSubtotal(subtotalTicket);
+  }, [counter]);
+
   return (
     <Public>
       <section className="w-full h-full">
@@ -230,13 +249,7 @@ const DetailEvent = () => {
                   <div className="w-full bg-[#161618]  mt-3 flex justify-between items-center border border-zinc-800 text-sm font-[600] rounded-md overflow-hidden p-1">
                     <div className="w-full text-left ml-8">
                       <h1>Total</h1>
-                      <h1>
-                        {convertPrice(
-                          counter[lastClickedId] *
-                            sale?.find((items) => items.id === lastClickedId)
-                              ?.price || 0
-                        )}
-                      </h1>
+                      <h1>{convertPrice(subtotal)}</h1>
                     </div>
                     <div className="w-3/5 h-full text-right rounded-md overflow-hidden">
                       <button className="w-full h-full py-4 bg-[#e37027]">
