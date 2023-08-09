@@ -1,9 +1,32 @@
 import { Navbar as NavbarBase, Button } from "flowbite-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "/logo.svg";
 
 const Navbar = () => {
+  // Get authentication status from local storage on component mount
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") === "true"
+  );
+
+  // // Function to handle user login
+  // const handleLogin = () => {
+  //   // Perform login logic here (e.g., authenticate user, save tokens, etc.)
+  //   setIsLoggedIn(true);
+  //   // Save login status in local storage
+  //   localStorage.setItem("isLoggedIn", "true");
+  // };
+
+  // Function to handle user logout
+  const handleLogout = () => {
+    // Perform logout logic here (e.g., clear tokens, etc.)
+    setIsLoggedIn(false);
+    // Save logout status in local storage
+    localStorage.setItem("isLoggedIn", "false");
+  };
+
   // Get authentication status from local storage on component mount
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("isLoggedIn") === "true"
@@ -39,6 +62,22 @@ const Navbar = () => {
       </NavbarBase.Brand>
       <div className="flex md:order-2">
         <div className="hidden md:flex gap-2">
+          <Link to="/register">
+            <Button
+              color="transparent"
+              className="flex-1 !border-orange-400 border-2 !text-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0"
+            >
+              Daftar
+            </Button>
+          </Link>
+          <Link to="/login">
+            <Button
+              color=""
+              className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
+            >
+              Masuk
+            </Button>
+          </Link>
           <Link to="/register">
             <Button
               color="transparent"
