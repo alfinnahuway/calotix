@@ -1,11 +1,15 @@
 import { useState } from "react";
 import Public from "../layouts/Public";
+import axios from "axios"; // Import Axios for making API requests
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+
+    const history = useNavigate();
 
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -23,15 +27,38 @@ const RegisterForm = () => {
         setConfirmPassword(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Perform registration logic here
-        // For demonstration purposes, just displaying the data
-        console.log("Username:", username);
-        console.log("Email:", email);
-        console.log("Password:", password);
-        console.log("Confirm Password:", confirmPassword);
+        try {
+            // Check if password and confirmPassword match
+            if (password !== confirmPassword) {
+                alert("Password and Confirm Password do not match.");
+                return;
+            }
+
+            // Construct the registration data
+            const registrationData = {
+                nama_depan: username, // Assuming "username" corresponds to the first name
+                nama_belakang: "", // You can add the last name here if needed
+                username: username,
+                email: email,
+                password: password,
+            };
+
+            // Send the registration data to the API
+            const response = await axios.post(import.meta.env.VITE_REACT_APP_REGISTER_API_URL, registrationData);
+
+            if (response.status === 201) {
+                alert("Registration successful!");
+                // Optionally, you can redirect the user to the login page after successful registration
+                history("/login");
+            } else {
+                alert("Registration failed. Please try again.");
+            }
+        } catch (error) {
+            alert("An error occurred during registration. Please try again.");
+        }
     };
 
     return (

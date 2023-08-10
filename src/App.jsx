@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import DetailEvent from "./pages/Detail.Event";
@@ -6,6 +6,9 @@ import LoginForm from "./pages/login";
 import RegisterForm from "./pages/register";
 
 function App() {
+  // Check if the authToken exists in local storage
+  const authToken = localStorage.getItem("authToken");
+  const isLoggedIn = !!authToken; // Convert to boolean
   return (
     <>
       <HelmetProvider>
@@ -21,8 +24,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/detail/:id" element={<DetailEvent />} />
-          <Route path="/login/" element={<LoginForm />} />
-          <Route path="/register/" element={<RegisterForm />} />
+          <Route
+            path="/login/"
+            element={isLoggedIn ? <Navigate to="/" /> : <LoginForm />}
+          />
+          <Route
+            path="/register/"
+            element={isLoggedIn ? <Navigate to="/" /> : <RegisterForm />}
+          />
         </Routes>
       </HelmetProvider>
     </>
