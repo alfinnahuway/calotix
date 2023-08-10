@@ -1,52 +1,24 @@
 import { Navbar as NavbarBase, Button } from "flowbite-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import Logo from "/logo.svg";
 
 const Navbar = () => {
+  // // Function to handle user logi
   // Get authentication status from local storage on component mount
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn") === "true"
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("authToken"));
 
-  // // Function to handle user login
-  // const handleLogin = () => {
-  //   // Perform login logic here (e.g., authenticate user, save tokens, etc.)
-  //   setIsLoggedIn(true);
-  //   // Save login status in local storage
-  //   localStorage.setItem("isLoggedIn", "true");
-  // };
+  console.log(isLoggedIn)
 
-  // Function to handle user logout
   const handleLogout = () => {
     // Perform logout logic here (e.g., clear tokens, etc.)
     setIsLoggedIn(false);
-    // Save logout status in local storage
-    localStorage.setItem("isLoggedIn", "false");
+    // Clear authToken value from local storage
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("password");
+    localStorage.removeItem("username");
   };
 
-  // Get authentication status from local storage on component mount
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("isLoggedIn") === "true"
-  );
-
-  // // Function to handle user login
-  // const handleLogin = () => {
-  //   // Perform login logic here (e.g., authenticate user, save tokens, etc.)
-  //   setIsLoggedIn(true);
-  //   // Save login status in local storage
-  //   localStorage.setItem("isLoggedIn", "true");
-  // };
-
-  // Function to handle user logout
-  const handleLogout = () => {
-    // Perform logout logic here (e.g., clear tokens, etc.)
-    setIsLoggedIn(false);
-    // Save logout status in local storage
-    localStorage.setItem("isLoggedIn", "false");
-  };
 
   return (
     <NavbarBase
@@ -54,7 +26,7 @@ const Navbar = () => {
       rounded
       className="!bg-black sticky top-0 !rounded-none z-[9999]"
     >
-      <NavbarBase.Brand href="/" className="pl-4">
+      <NavbarBase.Brand  to='/' className="pl-4" as={Link}>
         <img alt="Flowbite React Logo" className="mr-3 h-6 sm:h-9" src={Logo} />
         <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
           Calo.Tix
@@ -62,38 +34,34 @@ const Navbar = () => {
       </NavbarBase.Brand>
       <div className="flex md:order-2">
         <div className="hidden md:flex gap-2">
-          <Link to="/register">
+          {!isLoggedIn ? (
+            <>
+              <Link to="/register">
+                <Button
+                  color="transparent"
+                  className="flex-1 !border-orange-400 border-2 !text-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0"
+                >
+                  Daftar
+                </Button>
+              </Link>
+              <Link to="/login">
+                <Button
+                  color=""
+                  className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
+                >
+                  Masuk
+                </Button>
+              </Link>
+            </>
+          ) : (
             <Button
-              color="transparent"
-              className="flex-1 !border-orange-400 border-2 !text-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0"
+              onClick={handleLogout}
+                className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
             >
-              Daftar
+              Logout
             </Button>
-          </Link>
-          <Link to="/login">
-            <Button
-              color=""
-              className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
-            >
-              Masuk
-            </Button>
-          </Link>
-          <Link to="/register">
-            <Button
-              color="transparent"
-              className="flex-1 !border-orange-400 border-2 !text-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0"
-            >
-              Daftar
-            </Button>
-          </Link>
-          <Link to="/login">
-            <Button
-              color=""
-              className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
-            >
-              Masuk
-            </Button>
-          </Link>
+          )}
+         
         </div>
         <NavbarBase.Toggle
           color="orange"
@@ -112,28 +80,23 @@ const Navbar = () => {
                   color="transparent"
                   className="flex-1 !border-orange-400 w-full border-2 !text-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0"
                 >
-                  Daftar
+                  Daftar 
                 </Button>
               </Link>
               <Link
                 to="/login"
                 className="px-4 py-2 rounded  bg-orange-600 w-1/2 text-center text-white font-medium hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300"
               >
-                {/* <Button
-                  color=""
-                  className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
-                > */}
                 Masuk
-                {/* </Button> */}
               </Link>
             </>
           ) : (
-            <button
-              onClick={handleLogout}
-              className="text-white font-medium hover:text-gray-300"
-            >
+              <Button
+                onClick={handleLogout}
+                className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
+              >
               Logout
-            </button>
+            </Button>
           )}
         </div>
         <NavbarBase.Link

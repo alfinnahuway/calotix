@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Public from "../layouts/Public";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import Axios for making API requests
+
 
 const LoginForm = () => {
 
@@ -11,6 +13,8 @@ const LoginForm = () => {
     const [rememberMe, setRememberMe] = useState(!!localStorage.getItem("username"));
 
     useEffect(() => {
+
+        // console.log(import.meta.env.VITE_REACT_APP_LOGIN_API_URL)
         // Save login info in local storage whenever the state values change
         if (rememberMe) {
             localStorage.getItem("isLoggedIn") === "true"
@@ -35,22 +39,31 @@ const LoginForm = () => {
         setRememberMe(e.target.checked);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // For demonstration purposes, hardcoding credentials
-        const validUsername = "zulzdn";
-        const validPassword = "pass";
+        try {
+            const response = await axios.post(import.meta.env.VITE_REACT_APP_LOGIN_API_URL, {
+                username: username,
+                password: password,
+            });
 
-        if (username === validUsername && password === validPassword) {
-            alert("Login successful!");
-
-            // Redirect to the home page
-            history("/");
-        } else {
-            alert("Invalid username or password. Please try again.");
+            if (response.status === 200) {
+                const token = response.data.token;
+                // Store the token in local storage or a state variable
+                localStorage.setItem("authToken", token);
+                // Redirect to the home page
+                history("/");
+            } else {
+                alert("Login failed. Please try again.");
+            }
+        } catch (error) {
+            alert("An error occurred while trying to log in. Please try again.");
         }
     };
+
+
+    
 
 
     return (
