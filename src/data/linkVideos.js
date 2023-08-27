@@ -1,4 +1,4 @@
-export const highlightList = [
+export const linkVideos = [
   {
     id: 1,
     link: "9qD254rDtPs",
