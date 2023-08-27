@@ -4,7 +4,7 @@ import "../../node_modules/react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 import { useRef, useState } from "react";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { highlightList } from "./highlight-list/highLightList";
+import { linkVideos } from "../data/linkVideos";
 const Highlight = () => {
   const sliderRef = useRef(null);
   const [index, setIndex] = useState(0);
@@ -15,8 +15,8 @@ const Highlight = () => {
         key={id}
         className="w-full flex flex-col bg-neutral-950 border   border-zinc-800  p-6 rounded-lg group relative"
       >
-        <div class="-left-[1px] absolute bottom-28 w-5 h-10 bg-[#0c0a09] border-t border-t-zinc-800 border-b border-b-zinc-800 border-r border-r-zinc-800 rounded-e-3xl z-10"></div>
-        <div class="-right-[1px] absolute bottom-28 w-5 h-10 bg-[#0c0a09] rounded-s-3xl z-10 border-t border-t-zinc-800 border-b border-b-zinc-800 border-l border-l-zinc-800"></div>
+        <div className="-left-[1px] absolute bottom-28 w-5 h-10 bg-[#0c0a09] border-t border-t-zinc-800 border-b border-b-zinc-800 border-r border-r-zinc-800 rounded-e-3xl z-10"></div>
+        <div className="-right-[1px] absolute bottom-28 w-5 h-10 bg-[#0c0a09] rounded-s-3xl z-10 border-t border-t-zinc-800 border-b border-b-zinc-800 border-l border-l-zinc-800"></div>
         <div className="w-full rounded-lg overflow-hidden border border-zinc-800 shadow-sm group-hover:shadow-orange-400">
           <LiteYouTubeEmbed
             id={link}
@@ -102,42 +102,40 @@ const Highlight = () => {
     }
   }
   return (
-    <>
-      <section className="w-full">
-        <main className="container mx-auto">
-          <div className="w-full p-4 flex justify-between max-sm:hidden">
-            <h1 className="text-xl font-semibold text-neutral-300">
-              Highlight Videos
-            </h1>
-            <div className="flex gap-4">
-              <button
-                className={`hover:text-gray-600 ${
-                  index === 0 ? "text-gray-400" : "text-orange-400"
-                }`}
-                onClick={previous}
-                disabled={index === 0}
-              >
-                <Icon icon={faAngleLeft} size="xl" />
-              </button>
-              <button
-                className={`hover:text-gray-600 ${
-                  index === slidesToShow ? "text-gray-400" : "text-orange-400"
-                }`}
-                onClick={next}
-                disabled={index === slidesToShow}
-              >
-                <Icon icon={faAngleRight} size="xl" />
-              </button>
-            </div>
+    <section className="w-full">
+      <main className="container mx-auto">
+        <div className="w-full p-4 flex justify-between max-sm:hidden">
+          <h1 className="text-xl font-semibold text-neutral-300">
+            Highlight Videos
+          </h1>
+          <div className="flex gap-4">
+            <button
+              className={`hover:text-gray-600 ${
+                index === 0 ? "text-gray-400" : "text-orange-400"
+              }`}
+              onClick={previous}
+              disabled={index === 0}
+            >
+              <Icon icon={faAngleLeft} size="xl" />
+            </button>
+            <button
+              className={`hover:text-gray-600 ${
+                index === slidesToShow ? "text-gray-400" : "text-orange-400"
+              }`}
+              onClick={next}
+              disabled={index === slidesToShow}
+            >
+              <Icon icon={faAngleRight} size="xl" />
+            </button>
           </div>
-          <Slider ref={sliderRef} {...settings}>
-            {highlightList.map(({ id, link, title, description }) =>
-              createCards(id, link, title, description)
-            )}
-          </Slider>
-        </main>
-      </section>
-    </>
+        </div>
+        <Slider ref={sliderRef} {...settings}>
+          {linkVideos.map(({ id, link, title, description }) =>
+            createCards(id, link, title, description)
+          )}
+        </Slider>
+      </main>
+    </section>
   );
 };
 
