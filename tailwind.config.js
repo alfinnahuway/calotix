@@ -11,10 +11,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        jose: ["Josefin Sans", "sans-serif"],
+        rubik: ["Rubik", "sans-serif"],
       },
       colors: {
         heroblack: "#202020ab",
+        "primary-orange": "#fb923c",
+      },
+      backgroundImage: {
+        "footer-patern": "url('src/assets/img/background-00.jpg')",
       },
       screens: {
         sm: "480px",

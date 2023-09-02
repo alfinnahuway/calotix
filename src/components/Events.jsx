@@ -111,7 +111,9 @@ const Events = () => {
     <section className="w-full mt-8">
       <main className="container">
         <div className="w-full flex justify-between items-center p-4">
-          <h1 className="w-full text-xl font-bold">Event Terbaru</h1>
+          <h1 className="w-full text-xl font-bold drop-shadow-lg text-stone-300">
+            Event Terbaru
+          </h1>
           <div
             className={`w-full flex  justify-end gap-5 max-md:hidden max-sm:hidden  ${
               loading && "hidden"
@@ -142,7 +144,15 @@ const Events = () => {
           {loading || (!events && events.length < 0)
             ? loopLoadingCards()
             : events.map(
-                ({ id, headline, poster, start_date, end_date, tickets }) => (
+                ({
+                  id,
+                  headline,
+                  poster,
+                  start_date,
+                  end_date,
+                  tickets,
+                  regions,
+                }) => (
                   <EventsCard
                     key={id}
                     id={id}
@@ -151,6 +161,7 @@ const Events = () => {
                     start_date={start_date}
                     end_date={end_date}
                     tickets={tickets}
+                    regions={regions}
                   />
                 )
               )}

@@ -10,6 +10,7 @@ import { dateFormater } from "../utils/dateFormater";
 import { convertPrice } from "../utils/converterRupiah";
 import { paymentMethods } from "../data/paymentMethods";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/auth";
 
 const CheckoutTickets = () => {
   const items = localStorage.getItem("checkout");
@@ -24,11 +25,16 @@ const CheckoutTickets = () => {
   const totalTax =
     payment === "gopay" ? tax?.costService * total : tax?.costService || 0;
   const navigate = useNavigate();
-
+  const { token } = useAuth();
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/events/detail/${checkoutData.eventId}`
+        `http://localhost:8080/api/events/detail/${checkoutData.eventId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       const data = response.data.data;
       dispatch(setFetchCheckout(data));
@@ -56,8 +62,13 @@ const CheckoutTickets = () => {
     try {
       checkoutData.payment = payment;
       const response = await axios.post(
-        "http://localhost:8080/api/orders",
-        checkoutData
+        "http://localhost:8080/api/orders/create",
+        checkoutData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       navigate(`/transaction/${response.data.orderId}/payment`);
     } catch (error) {
@@ -72,7 +83,7 @@ const CheckoutTickets = () => {
           <div className="w-full grid lg:grid-cols-3 sm:grid-cols-1 gap-4">
             <div className="lg:col-span-2">
               <h1 className="text-xl font-[500] p-2">Detail Pemesanan</h1>
-              <div className="w-full border p-5 rounded-lg">
+              <div className="w-full bg-[#161618] shadow-sm-light shadow-[#0a0a0a] p-5 rounded-lg">
                 <div className="w-full h-full grid lg:grid-cols-2 sm:grid-cols-1 max-sm:grid-cols-1 gap-3">
                   <div className="lg:col-span-1 sm:col-span-2 max-sm:col-span-2 overflow-hidden rounded-lg">
                     <img

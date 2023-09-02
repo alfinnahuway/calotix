@@ -5,6 +5,7 @@ import detailTicket from "./slice/tickets/detailTicket";
 import toolsSlice from "./slice/tools/toolsSlice";
 import eventSlices from "./slice/events/eventSlices";
 import paymentSlices from "./slice/payment/paymentSlices";
+import transactionSlice from "./slice/transaction/transactionSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     tools: toolsSlice,
     eventslices: eventSlices,
     paymentslices: paymentSlices,
+    transactionSlice: transactionSlice,
   },
 });
 

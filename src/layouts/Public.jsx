@@ -6,7 +6,7 @@ const Public = ({ children }) => {
   return (
     <main>
       <Header />
-      <div className="pt-10">{children}</div>
+      <div className="py-10">{children}</div>
       <Footerlocal />
     </main>
   );

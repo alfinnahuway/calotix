@@ -1,61 +1,57 @@
 import { Navbar as NavbarBase, Button } from "flowbite-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "/logo.svg";
+import { useAuth } from "../hooks/auth";
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-  // // Function to handle user logi
-  // Get authentication status from local storage on component mount
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    !!localStorage.getItem("authToken")
-  );
-
+  const { logout, token } = useAuth();
   const handleLogout = () => {
-    // Perform logout logic here (e.g., clear tokens, etc.)
-    setIsLoggedIn(false);
-    // Clear authToken value from local storage
-    localStorage.removeItem("authToken");
-    localStorage.removeItem("password");
-    localStorage.removeItem("username");
+    logout();
   };
 
   return (
     <NavbarBase
       fluid
       rounded
-      className="!bg-black sticky top-0 !rounded-none z-[9999]"
+      className="!bg-[#121212] sticky top-0 !rounded-none z-[9999] shadow-md shadow-[#0a0a0a]"
     >
       <NavbarBase.Brand to="/" className="pl-4" as={Link}>
-        <img alt="Flowbite React Logo" className="mr-3 h-6 sm:h-9" src={Logo} />
-        <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
-          Calo.Tix
+        <img
+          alt="Flowbite React Logo"
+          className="mr-1 w-10 sm:h-9 p-1"
+          src={Logo}
+        />
+        <span className="self-center whitespace-nowrap text-xl font-[400] text-stone-300 drop-shadow-lg">
+          Calo.
+          <span className="text text-xl text-primary-orange font-[500]">
+            Tix
+          </span>
         </span>
       </NavbarBase.Brand>
-      <div className="flex md:order-2">
+
+      <div className="flex md:order-2 items-center">
         <div className="hidden md:flex gap-2">
-          {!isLoggedIn ? (
+          {!token ? (
             <>
-              <Link to="/register">
-                <Button
-                  color="transparent"
-                  className="flex-1 !border-orange-400 border-2 !text-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0"
-                >
-                  Daftar
-                </Button>
+              <Link
+                className="flex-1 text-primary-orange hover:text-[#fb983cf3] hover:drop-shadow-md border-2 border-transparent rounded-md py-1 px-5 text-sm font-[500]"
+                to="/register"
+              >
+                Daftar
               </Link>
-              <Link to="/login">
-                <Button
-                  color=""
-                  className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
-                >
-                  Masuk
-                </Button>
+              <Link
+                className="flex-1 bg-primary-orange hover:bg-[#fb983cf3] shadow-md hover:shadow-[#212121]   border-2 border-transparent text-[#121212]  py-1 px-4 rounded-lg text-sm font-[500]"
+                to="/login"
+              >
+                Masuk
               </Link>
             </>
           ) : (
             <Button
               onClick={handleLogout}
-              className="flex-1 !bg-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-2 hover:!border-orange-400 border-2 border-transparent !text-black"
+              className="flex-1 !bg-[#fb923c] hover:!brightness-75 hover:!text-white focus:!ring-0 hover:!border-orange-400 border-2 border-transparent !text-black text-sm"
             >
               Logout
             </Button>
@@ -63,27 +59,22 @@ const Navbar = () => {
         </div>
         <NavbarBase.Toggle
           color="orange"
-          className="hover:!bg-transparent focus:!ring-0"
+          className="hover:!bg-transparent focus:!ring-0 text-primary-orange"
         />
       </div>
-      <NavbarBase.Collapse className="!pb-2 ">
+      <NavbarBase.Collapse className="w-full lg:-ml-80 md:ml-0">
         <div className="flex gap-2 md:hidden justify-center items-center w-full mb-4 px-4">
-          {!isLoggedIn ? (
+          {!token ? (
             <>
               <Link
                 to="/register"
-                className="text-white font-medium w-1/2 hover:text-gray-300"
+                className="font-medium w-1/2 px-4 py-2 hover:text-gray-300 text-[#e37027] text-sm text-center"
               >
-                <Button
-                  color="transparent"
-                  className="flex-1 !border-orange-400 w-full border-2 !text-orange-400 hover:!brightness-75 hover:!text-white focus:!ring-0"
-                >
-                  Daftar
-                </Button>
+                Daftar
               </Link>
               <Link
                 to="/login"
-                className="px-4 py-2 rounded  bg-orange-600 w-1/2 text-center text-white font-medium hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300"
+                className="px-4 py-2 rounded  bg-primary-orange w-1/2 text-center text-[#121212]  text-sm font-medium hover:bg-[#fb983cf3] focus:outline-none focus:ring focus:ring-orange-300"
               >
                 Masuk
               </Link>
@@ -97,23 +88,19 @@ const Navbar = () => {
             </Button>
           )}
         </div>
+        <div className="lg:w-96 p-1 md:ml-0 md:w-60 bg-[#161618] rounded-lg">
+          <input
+            className="w-full outline-none focus:border-none focus:ring-0 bg-transparent border-none text-xs"
+            type="text"
+            placeholder="Cari event terbaikmu"
+          />
+        </div>
         <NavbarBase.Link
           href="#"
-          className="text-base !text-white hover:!text-orange-400 hover:!bg-transparent"
+          className="text-sm !text-white hover:!text-orange-400 hover:!bg-transparent leading-10 border-none"
         >
+          <Icon className="mr-2" icon={faCalendarAlt} size="sm" />
           Event
-        </NavbarBase.Link>
-        <NavbarBase.Link
-          href="#"
-          className="text-base !text-white  hover:!text-orange-400 hover:!bg-transparent"
-        >
-          Schedule
-        </NavbarBase.Link>
-        <NavbarBase.Link
-          href="#"
-          className="text-base !text-white  hover:!text-orange-400 hover:!bg-transparent"
-        >
-          About us
         </NavbarBase.Link>
       </NavbarBase.Collapse>
     </NavbarBase>
