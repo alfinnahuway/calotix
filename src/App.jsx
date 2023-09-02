@@ -8,12 +8,12 @@ import CheckoutTickets from "./pages/Checkout.Tickets";
 import ScrollToTop from "./utils/components/ScrollToTop";
 import ProtectedRoute from "./utils/protectedRoute";
 import Payment from "./pages/Payment";
+import { ProtectRoutes } from "./hooks/protectedRoutes";
+import { useAuth } from "./hooks/auth";
+import Transaction from "./pages/Transaction";
 
 function App() {
-  // Check if the authToken exists in local storage
-  const authToken = localStorage.getItem("authToken");
-  const isLoggedIn = !!authToken; // Convert to boolean
-
+  const { token } = useAuth();
   return (
     <>
       <HelmetProvider>
@@ -30,7 +30,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/detail/:id" element={<DetailEvent />} />
-          <Route path="/transaction/:orderId/payment" element={<Payment />} />
+          <Route path="/transaction" element={<Transaction />} />
+          <Route element={<ProtectRoutes />}>
+            <Route path="/transaction/:orderId/payment" element={<Payment />} />
+          </Route>
           <Route
             path="/checkout-tickets"
             element={
@@ -40,14 +43,16 @@ function App() {
             }
           />
 
-          <Route
-            path="/login/"
-            element={isLoggedIn ? <Navigate to="/" /> : <LoginForm />}
-          />
-          <Route
-            path="/register/"
-            element={isLoggedIn ? <Navigate to="/" /> : <RegisterForm />}
-          />
+          {token ? (
+            <Route
+              path="/login"
+              element={<Navigate to="/" />} // Jika sudah login, arahkan ke halaman utama
+            />
+          ) : (
+            <Route path="/login" element={<LoginForm />} />
+          )}
+
+          <Route path="/register" element={<RegisterForm />} />
         </Routes>
       </HelmetProvider>
     </>

@@ -14,6 +14,7 @@ const EventsCard = ({
   start_date,
   end_date,
   tickets,
+  regions,
 }) => {
   return (
     <Link
@@ -28,13 +29,13 @@ const EventsCard = ({
           alt=""
         />
       </div>
-      <div className="w-full h-2/5 flex flex-col px-4 py-3 lg:gap-20 md:gap-20 max-sm:gap-14 border-t  border-[#212124] ">
+      <div className="w-full h-2/5 flex flex-col px-4 py-3 lg:gap-16 md:gap-20 max-sm:gap-10 border-t  border-[#212124] ">
         <div className="w-full ">
-          {/* <p className="lg:text-sm max-sm:text-xs text-slate-300">
-              <Icon className="mr-2" icon={faMapLocation} size="sm" />
-              {location}
-            </p> */}
-          <h1 className="line-clamp-1 font-semibold mb-1 text-slate-100 lg:text-base max-sm:text-sm">
+          <p className="lg:text-sm max-sm:text-xs text-slate-300">
+            <Icon className="mr-2" icon={faMapLocation} size="sm" />
+            {regions?.region_city}
+          </p>
+          <h1 className="line-clamp-1 font-[500] mb-1 text-slate-100 lg:text-base max-sm:text-sm">
             {headline}
           </h1>
           <p className="lg:text-sm max-sm:text-xs text-slate-100">
