@@ -6,6 +6,7 @@ import { useAuth } from "../hooks/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { setAllOrder } from "../redux/slice/transaction/transactionSlice";
 import { convertPrice } from "../utils/converterRupiah";
+import { Link } from "react-router-dom";
 
 const Transaction = () => {
   const allOrder = useSelector((state) => state.transactionSlice.allOrder);
@@ -20,7 +21,6 @@ const Transaction = () => {
         },
       });
       dispatch(setAllOrder(response.data));
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -34,22 +34,32 @@ const Transaction = () => {
       <section className="w-full h-full">
         <main className="container">
           <div className="grid grid-cols-2">
-            <div className="grid grid-cols-1 gap-2">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-2 col-span-2">
               {allOrder.map((order) => (
-                <div key={order.id} className="w-full bg-[#161618]  p-4">
+                <Link
+                  to={`/transaction/${order.id}/payment`}
+                  key={order.id}
+                  className="w-full bg-[#161618]  p-4"
+                >
                   <h1>{order.event?.headline}</h1>
                   <p>{convertPrice(order.amount)}</p>
                   <div className="w-full flex justify-between ">
                     <div>
                       <p>Kode Pesanan</p>
                       <p>Tanggal Pesanan</p>
+                      <p>Status Pemesanan</p>
                     </div>
                     <div>
                       <p>{order.id}</p>
                       <p>{moment(order.createdAt).format("DD MMMM YYYY")}</p>
+                      <p>
+                        {order.payment_status === "settlement"
+                          ? "dibayar".toUpperCase()
+                          : order.payment_status}
+                      </p>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

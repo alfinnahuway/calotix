@@ -8,16 +8,17 @@ import { linkVideos } from "../data/linkVideos";
 const Highlight = () => {
   const sliderRef = useRef(null);
   const [index, setIndex] = useState(0);
+  const lastIndex = linkVideos.length - 3;
 
   const createCards = (id, link, title, description) => {
     return (
       <div
         key={id}
-        className="w-full flex flex-col bg-neutral-950 border   border-zinc-800  p-6 rounded-lg group relative"
+        className="h-80 flex flex-col bg-[#161618] shadow-sm-light shadow-[#0a0a0a]  p-6 rounded-md group relative my-2"
       >
-        <div className="-left-[1px] absolute bottom-28 w-5 h-10 bg-[#212121] border-t border-t-zinc-800 border-b border-b-zinc-800 border-r border-r-zinc-800 rounded-e-3xl z-10"></div>
-        <div className="-right-[1px] absolute bottom-28 w-5 h-10 bg-[#212121] rounded-s-3xl z-10 border-t border-t-zinc-800 border-b border-b-zinc-800 border-l border-l-zinc-800"></div>
-        <div className="w-full rounded-lg overflow-hidden border border-zinc-800 shadow-sm group-hover:shadow-orange-400">
+        {/* <div className="-left-[1px] absolute bottom-28 w-5 h-10 bg-[#212121] border-t border-t-zinc-800 border-b border-b-zinc-800 border-r border-r-zinc-800 rounded-e-3xl z-10"></div>
+        <div className="-right-[1px] absolute bottom-28 w-5 h-10 bg-[#212121] rounded-s-3xl z-10 border-t border-t-zinc-800 border-b border-b-zinc-800 border-l border-l-zinc-800"></div> */}
+        <div className="rounded-lg overflow-hidden border border-zinc-800 shadow-sm group-hover:shadow-orange-400">
           <LiteYouTubeEmbed
             id={link}
             title="YouTube video player"
@@ -38,11 +39,15 @@ const Highlight = () => {
   };
 
   const previous = () => {
-    sliderRef.current.slickPrev();
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
   };
 
   const next = () => {
-    sliderRef.current.slickNext();
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
   };
 
   const beforeChange = (prev, next) => {
@@ -50,7 +55,6 @@ const Highlight = () => {
   };
 
   const settings = {
-    dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
@@ -62,7 +66,7 @@ const Highlight = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: false,
           dots: true,
@@ -71,61 +75,47 @@ const Highlight = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
-          initialSlide: 1,
           arrows: false,
         },
       },
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
-          initialSlide: 1,
           arrows: false,
         },
       },
     ],
   };
 
-  // Mendapatkan lebar tampilan saat ini
-  const currentWidth = window.innerWidth;
-
-  // Mendapatkan properti slidesToShow berdasarkan responsif
-  let slidesToShow = 2; // Nilai default jika tidak ada responsif yang cocok
-
-  for (const responsiveSetting of settings.responsive) {
-    if (currentWidth <= responsiveSetting.breakpoint) {
-      slidesToShow = responsiveSetting.settings.slidesToShow;
-      break;
-    }
-  }
   return (
     <section className="w-full">
-      <main className="container mx-auto">
-        <div className="w-full p-4 flex justify-between max-sm:hidden">
-          <h1 className="text-xl font-semibold text-neutral-300">
-            Highlight Videos
+      <main className="container py-10">
+        <div className="w-full p-4 flex justify-between">
+          <h1 className="text-xl font-[500] drop-shadow-md text-stone-300">
+            Sorotan Konser
           </h1>
-          <div className="flex gap-4">
+          <div className=" gap-4 hidden lg:flex md:flex">
             <button
-              className={`hover:text-gray-600 ${
-                index === 0 ? "text-gray-400" : "text-orange-400"
+              className={` w-8 h-8 rotate-45 bg-[#161618] pr-1 pt-1 flex justify-center items-center rounded-md shadow-sm focus: shadow-[#0a0a0a] ${
+                index === 0 ? "text-gray-400" : "text-primary-orange"
               }`}
               onClick={previous}
               disabled={index === 0}
             >
-              <Icon icon={faAngleLeft} size="xl" />
+              <Icon className="rotate-[-45deg]" icon={faAngleLeft} size="xl" />
             </button>
             <button
-              className={`hover:text-gray-600 ${
-                index === slidesToShow ? "text-gray-400" : "text-orange-400"
+              className={` w-8 h-8 -rotate-45 bg-[#161618] pl-1 pt-1 flex justify-center items-center rounded-md shadow-sm shadow-[#0a0a0a] ${
+                index >= lastIndex ? "text-gray-400" : "text-primary-orange"
               }`}
               onClick={next}
-              disabled={index === slidesToShow}
+              disabled={index >= lastIndex}
             >
-              <Icon icon={faAngleRight} size="xl" />
+              <Icon className="rotate-[45deg]" icon={faAngleRight} size="xl" />
             </button>
           </div>
         </div>

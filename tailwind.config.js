@@ -15,10 +15,10 @@ export default {
       },
       colors: {
         heroblack: "#202020ab",
-        "primary-orange": "#fb923c",
+        "primary-orange": "#de8237",
       },
       backgroundImage: {
-        "footer-patern": "url('src/assets/img/background-00.jpg')",
+        "footer-patern": "url('./src/assets/img/background-00.jpg')",
       },
       screens: {
         sm: "480px",
@@ -34,8 +34,8 @@ export default {
         center: true,
         padding: {
           DEFAULT: "1rem",
-          md: "2rem",
-          lg: "3rem",
+          md: "1rem",
+          lg: "2rem",
         },
       },
     },

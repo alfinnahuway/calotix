@@ -56,7 +56,6 @@ const Payment = () => {
       );
       dispatch(setPaymentData(response.data));
       dispatch(setStatusPayment(response.data.transaction_status));
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -169,7 +168,7 @@ const Payment = () => {
                   </h1>
                   <div className="overflow-hidden rounded-md mb-4">
                     <img
-                      src={`http://localhost:8080/uploads/poster/${event?.poster}`}
+                      src={`http://localhost:8080/${event?.poster}`}
                       alt=""
                     />
                   </div>
