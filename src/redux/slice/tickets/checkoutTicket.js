@@ -5,6 +5,7 @@ const initialState = {
   fetchCheckout: {},
   localData: [],
   payment: "",
+  loading: false,
 };
 
 const checkoutSlice = createSlice({
@@ -23,6 +24,9 @@ const checkoutSlice = createSlice({
     setPayment: (state, action) => {
       state.payment = action.payload;
     },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
   },
 });
 
@@ -31,5 +35,6 @@ export const {
   setFetchCheckout,
   setLocalData,
   setPayment,
+  setLoading,
 } = checkoutSlice.actions;
 export default checkoutSlice.reducer;

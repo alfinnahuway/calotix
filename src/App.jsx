@@ -30,7 +30,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/detail/:id" element={<DetailEvent />} />
-          <Route path="/transaction" element={<Transaction />} />
+          <Route element={<ProtectRoutes />}>
+            <Route path="/transaction" element={<Transaction />} />
+          </Route>
           <Route element={<ProtectRoutes />}>
             <Route path="/transaction/:orderId/payment" element={<Payment />} />
           </Route>

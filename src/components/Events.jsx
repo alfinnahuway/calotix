@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import EventsCard from "./cards/events/EventsCard";
 import LoadingEvents from "./cards/events/LoadingEvents";
 import { setEvents } from "../redux/slice/events/eventSlices";
+import { Link } from "react-router-dom";
 
 const Events = () => {
   const sliderRef = useRef(null);
@@ -44,7 +45,6 @@ const Events = () => {
     beforeChange: beforeChange,
     swipe: loading ? false : true,
     arrows: false,
-    // swipe: loading,
     responsive: [
       {
         breakpoint: 1024,
@@ -58,7 +58,7 @@ const Events = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1.5,
           slidesToScroll: 2,
           initialSlide: 1,
           arrows: false,
@@ -83,7 +83,6 @@ const Events = () => {
       const response = await axios.get(
         "http://localhost:8080/api/events/fetch"
       );
-
       dispatch(setEvents(response.data.data));
     } catch (err) {
       console.log(err);
@@ -108,34 +107,34 @@ const Events = () => {
   };
 
   return (
-    <section className="w-full mt-8">
-      <main className="container">
+    <section className="w-full">
+      <main className="container py-5">
         <div className="w-full flex justify-between items-center p-4">
-          <h1 className="w-full text-xl font-bold drop-shadow-lg text-stone-300">
+          <h1 className="w-full text-xl font-[500] drop-shadow-lg text-stone-300">
             Event Terbaru
           </h1>
           <div
-            className={`w-full flex  justify-end gap-5 max-md:hidden max-sm:hidden  ${
+            className={`w-full flex  justify-end gap-3 max-md:hidden max-sm:hidden  ${
               loading && "hidden"
             }`}
           >
             <button
-              className={`hover:text-gray-600   ${
-                index === 0 ? "text-gray-400" : "text-[#e37027]"
+              className={`w-8 h-8 rotate-45 bg-[#161618] pr-1 pt-1 flex justify-center items-center rounded-md shadow-sm focus: shadow-[#0a0a0a] ${
+                index === 0 ? "text-gray-400" : "text-primary-orange"
               }`}
               onClick={previous}
               disabled={index === 0}
             >
-              <Icon icon={faAngleLeft} size="xl" />
+              <Icon className="rotate-[-45deg]" icon={faAngleLeft} size="xl" />
             </button>
             <button
-              className={`hover:text-gray-600  ${
-                index >= lastIndex ? "text-gray-400" : "text-[#e37027]"
+              className={`w-8 h-8 -rotate-45 bg-[#161618] pl-1 pt-1 flex justify-center items-center rounded-md shadow-sm shadow-[#0a0a0a] ${
+                index >= lastIndex ? "text-gray-400" : "text-primary-orange"
               }`}
               onClick={next}
               disabled={index >= lastIndex}
             >
-              <Icon icon={faAngleRight} size="xl" />
+              <Icon className="rotate-[45deg]" icon={faAngleRight} size="xl" />
             </button>
           </div>
         </div>
