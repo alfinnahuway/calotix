@@ -29,6 +29,6 @@ I possess expertise in various aspects of software development, including:
 
 ## How to Contact Me
 
-You can reach out to me via email at [alfintomy08@gmail.com] or connect with me on [LinkedIn](https://www.linkedin.com/in/alfinnahuway/)(https://www.linkedin.com/in/alfinnahuway/).
+You can reach out to me via email at [alfintomy08@gmail.com] or connect with me on [LinkedIn](https://www.linkedin.com/in/alfinnahuway/).
 
 Thank you for visiting my portfolio. I look forward to potentially collaborating with you on future projects!
