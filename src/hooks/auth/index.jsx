@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
+import env from "react-dotenv";
 
 const UserContext = createContext();
 
@@ -15,7 +16,7 @@ export const UserProvider = ({ children }) => {
   const getAccount = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/users/account",
+        `${env.VITE_REACT_APP_API_URL}/api/users/account`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -59,7 +60,7 @@ export const UserProvider = ({ children }) => {
 
     try {
       const response = await axios.post(
-        import.meta.env.VITE_REACT_APP_LOGIN_API_URL,
+        `${env.VITE_REACT_APP_API_URL}/api/users/login`,
         {
           email: email,
           password: password,

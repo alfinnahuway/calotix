@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import EventsCard from "./cards/events/EventsCard";
 import LoadingEvents from "./cards/events/LoadingEvents";
 import { setEvents } from "../redux/slice/events/eventSlices";
-import { Link } from "react-router-dom";
+import env from "react-dotenv";
 
 const Events = () => {
   const sliderRef = useRef(null);
@@ -81,7 +81,7 @@ const Events = () => {
   const getAllEvent = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/events/fetch"
+        `${env.VITE_REACT_APP_API_URL}/api/events/fetch`
       );
       dispatch(setEvents(response.data.data));
     } catch (err) {

@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setAllOrder } from "../redux/slice/transaction/transactionSlice";
 import { convertPrice } from "../utils/converterRupiah";
 import { Link } from "react-router-dom";
+import env from "react-dotenv";
 
 const Transaction = () => {
   const allOrder = useSelector((state) => state.transactionSlice.allOrder);
@@ -15,11 +16,14 @@ const Transaction = () => {
 
   const getAllTransaction = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/orders", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${env.VITE_REACT_APP_API_URL}/api/orders`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       dispatch(setAllOrder(response.data));
     } catch (error) {
       console.log(error);

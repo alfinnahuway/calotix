@@ -14,6 +14,7 @@ import {
   faExchange,
   faCalendarAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import env from "react-dotenv";
 
 const Navbar = () => {
   const { logout, token, userAccount } = useAuth();
@@ -31,7 +32,7 @@ const Navbar = () => {
   const getEventsBySearch = async (itemSearch) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/events/getAll?search=${itemSearch}`
+        `${env.VITE_REACT_APP_API_URL}/api/events/getAll?search=${itemSearch}`
       );
       setEventSearch(response.data);
       setLoadingSearch(false);

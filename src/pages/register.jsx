@@ -4,6 +4,7 @@ import axios from "axios"; // Import Axios for making API requests
 import { useNavigate } from "react-router-dom";
 import backgroundLogin from "../../src/assets/img/background-03.jpg";
 import Logo from "/logo.svg";
+import env from "react-dotenv";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
@@ -46,7 +47,7 @@ const RegisterForm = () => {
 
       // Send the registration data to the API
       const response = await axios.post(
-        import.meta.env.VITE_REACT_APP_REGISTER_API_URL,
+        `${env.VITE_REACT_APP_API_URL}/api/users/register`,
         registrationData
       );
 

@@ -19,6 +19,8 @@ import {
   faMapLocationDot,
   faCity,
 } from "@fortawesome/free-solid-svg-icons";
+import env from "react-dotenv";
+
 const CheckoutTickets = () => {
   const items = localStorage.getItem("checkout");
   const checkoutData = JSON.parse(items);
@@ -36,7 +38,7 @@ const CheckoutTickets = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/events/detail/${checkoutData.eventId}`,
+        `${env.VITE_REACT_APP_API_URL}/api/events/detail/${checkoutData.eventId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
