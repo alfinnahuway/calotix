@@ -32,7 +32,9 @@ const Navbar = () => {
   const getEventsBySearch = async (itemSearch) => {
     try {
       const response = await axios.get(
-        `${env.VITE_REACT_APP_API_URL}/api/events/getAll?search=${itemSearch}`
+        `${
+          import.meta.env.VITE_REACT_APP_API_URL
+        }/api/events/getAll?search=${itemSearch}`
       );
       setEventSearch(response.data);
       setLoadingSearch(false);
@@ -94,10 +96,7 @@ const Navbar = () => {
               <div className="w-10 h-10 border-2  hover:border-stone-600 border-transparent overflow-hidden rounded-full">
                 <img
                   className="w-full h-full"
-                  src={
-                    userAccount &&
-                    `http://localhost:8080/uploads/user-profile/${userAccount?.avatar}`
-                  }
+                  src={userAccount && userAccount?.avatar}
                   alt={userAccount?.name}
                   key={userAccount?.avatar}
                 />
@@ -109,10 +108,7 @@ const Navbar = () => {
                       <div className="w-10 h-10 overflow-hidden rounded-full">
                         <img
                           className="w-full"
-                          src={
-                            userAccount &&
-                            `http://localhost:8080/uploads/user-profile/${userAccount?.avatar}`
-                          }
+                          src={userAccount && userAccount?.avatar}
                           alt={userAccount?.name}
                           key={userAccount?.avatar}
                         />
@@ -225,7 +221,7 @@ const Navbar = () => {
                     <div className="w-40 h-20 rounded-md overflow-hidden">
                       <img
                         className="w-full h-full"
-                        src={`http://localhost:8080/${event.poster}`}
+                        src={event.poster}
                         alt=""
                       />
                     </div>

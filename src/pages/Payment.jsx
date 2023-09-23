@@ -24,7 +24,6 @@ import { w3cwebsocket as WebSocketClient } from "websocket";
 import LoadingDots from "../utils/components/LoadingDots";
 import { convertPrice } from "../utils/converterRupiah";
 import { useAuth } from "../hooks/auth";
-import env from "react-dotenv";
 
 const Payment = () => {
   const { token } = useAuth();
@@ -48,7 +47,7 @@ const Payment = () => {
   const getDataPayment = async () => {
     try {
       const response = await axios.get(
-        `${env.VITE_REACT_APP_API_URL}/api/orders/${orderId}`,
+        `${import.meta.env.VITE_REACT_APP_API_URL}/api/orders/${orderId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

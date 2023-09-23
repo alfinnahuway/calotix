@@ -81,7 +81,7 @@ const Events = () => {
   const getAllEvent = async () => {
     try {
       const response = await axios.get(
-        `${env.VITE_REACT_APP_API_URL}/api/events/fetch`
+        `${import.meta.env.VITE_REACT_APP_API_URL}/api/events/fetch`
       );
       dispatch(setEvents(response.data.data));
     } catch (err) {

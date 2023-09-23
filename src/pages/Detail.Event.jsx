@@ -21,7 +21,6 @@ import { useNavigate } from "react-router-dom";
 import LoadingTickets from "../components/cards/tickets/LoadingTickets";
 import TicketsCard from "../components/cards/tickets/TicketsCard";
 import { faCity } from "@fortawesome/free-solid-svg-icons";
-import env from "react-dotenv";
 
 const DetailEvent = () => {
   const { id } = useParams();
@@ -47,7 +46,7 @@ const DetailEvent = () => {
   const getTicket = async () => {
     try {
       const response = await axios.get(
-        `${env.VITE_REACT_APP_API_URL}/api/events/detail/${id}`
+        `${import.meta.env.VITE_REACT_APP_API_URL}/api/events/detail/${id}`
       );
       dispatch(setAllTicket(response.data.data));
     } catch (err) {
@@ -127,11 +126,7 @@ const DetailEvent = () => {
               <div className="w-full grid lg:grid-cols-2 md:grid-cols-1 gap-4 mb-5">
                 <div className="w-full grid grid-cols-1 lg:col-span-1 col-span-2 gap-8 row-span-2">
                   <div className="w-full  lg:col-span-1  col-span-2  lg:h-[40vh] md:h-[50vh] h-[40vh]  mr-4 overflow-hidden rounded-md lg:-mb-10">
-                    <img
-                      className="w-full h-full"
-                      src={`${env.VITE_REACT_APP_API_URL}/${poster}`}
-                      alt=""
-                    />
+                    <img className="w-full h-full" src={poster} alt="" />
                   </div>
                   <div className="flex h-fit  flex-col lg:col-span-1 col-span-2  ">
                     <div className="text-[#e4e6eb] bg-[#161618] shadow-sm-light shadow-[#0a0a0a] rounded-md p-4 ">

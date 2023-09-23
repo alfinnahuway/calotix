@@ -23,11 +23,7 @@ const EventsCard = ({
       className="w-full text-[#0e0c0a] bg-[#161618]  flex flex-col overflow-hidden shadow-sm-light shadow-[#0a0a0a] rounded-md  hover:shadow-primary-orange my-2"
     >
       <div className="w-full lg:h-40 md:h-40 h-32 overflow-hidden">
-        <img
-          className="w-full h-full"
-          src={`http://localhost:8080/${poster}`}
-          alt=""
-        />
+        <img className="w-full h-full" src={poster} alt="" />
       </div>
       <div className="w-full  flex flex-col px-4 py-3 lg:gap-16 md:gap-20 max-sm:gap-10 border-t  border-[#212124] ">
         <div className="w-full">

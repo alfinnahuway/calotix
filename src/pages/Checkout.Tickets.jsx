@@ -19,7 +19,6 @@ import {
   faMapLocationDot,
   faCity,
 } from "@fortawesome/free-solid-svg-icons";
-import env from "react-dotenv";
 
 const CheckoutTickets = () => {
   const items = localStorage.getItem("checkout");
@@ -38,7 +37,9 @@ const CheckoutTickets = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `${env.VITE_REACT_APP_API_URL}/api/events/detail/${checkoutData.eventId}`,
+        `${import.meta.env.VITE_REACT_APP_API_URL}/api/events/detail/${
+          checkoutData.eventId
+        }`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -66,7 +67,7 @@ const CheckoutTickets = () => {
     try {
       checkoutData.payment = payment;
       const response = await axios.post(
-        "http://localhost:8080/api/orders/create",
+        `${import.meta.env.VITE_REACT_APP_API_URL}/api/orders/create`,
         checkoutData,
         {
           headers: {
@@ -105,11 +106,7 @@ const CheckoutTickets = () => {
               <div className="w-full bg-[#161618] shadow-sm-light shadow-[#0a0a0a] p-5 rounded-lg">
                 <div className="w-full h-full grid lg:grid-cols-3 grid-cols-1 gap-3 text-stone-300">
                   <div className="lg:h-[40vh] h-[20vh] lg:col-span-2 col-span-3 overflow-hidden rounded-lg mb-4">
-                    <img
-                      className="w-full h-full"
-                      src={`http://localhost:8080/${poster}`}
-                      alt=""
-                    />
+                    <img className="w-full h-full" src={poster} alt="" />
                   </div>
                   <div className="w-full lg:col-span-1 col-span-3 ">
                     <h1 className="lg:text-xl text-base font-[700]">

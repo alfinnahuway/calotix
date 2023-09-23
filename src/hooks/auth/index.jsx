@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
   const getAccount = async () => {
     try {
       const response = await axios.get(
-        `${env.VITE_REACT_APP_API_URL}/api/users/account`,
+        `${import.meta.env.VITE_REACT_APP_API_URL}/api/users/account`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ export const UserProvider = ({ children }) => {
 
     try {
       const response = await axios.post(
-        `${env.VITE_REACT_APP_API_URL}/api/users/login`,
+        `${import.meta.env.VITE_REACT_APP_API_URL}/api/users/login`,
         {
           email: email,
           password: password,
