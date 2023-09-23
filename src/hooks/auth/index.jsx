@@ -2,7 +2,6 @@ import axios from "axios";
 import { createContext, useContext, useMemo, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
-import env from "react-dotenv";
 
 const UserContext = createContext();
 
