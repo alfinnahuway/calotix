@@ -14,7 +14,6 @@ import {
   faExchange,
   faCalendarAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import env from "react-dotenv";
 
 const Navbar = () => {
   const { logout, token, userAccount } = useAuth();

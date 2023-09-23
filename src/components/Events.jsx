@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import EventsCard from "./cards/events/EventsCard";
 import LoadingEvents from "./cards/events/LoadingEvents";
 import { setEvents } from "../redux/slice/events/eventSlices";
-import env from "react-dotenv";
 
 const Events = () => {
   const sliderRef = useRef(null);
