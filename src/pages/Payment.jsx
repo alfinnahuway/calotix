@@ -66,7 +66,7 @@ const Payment = () => {
   }, [orderId]);
 
   useEffect(() => {
-    const ws = new WebSocketClient("wss://api-calotix-product.vercel.app"); // Menghubungkan ke server backend
+    const ws = new WebSocketClient(`${import.meta.env.VITE_REACT_APP_API_URL}/api/socket`); // Menghubungkan ke server backend
 
     ws.onopen = () => {
       console.log("WebSocket connected");
