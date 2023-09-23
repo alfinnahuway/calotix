@@ -66,7 +66,7 @@ const Payment = () => {
   }, [orderId]);
 
   useEffect(() => {
-    const ws = new WebSocketClient("ws://localhost:8080"); // Menghubungkan ke server backend
+    const ws = new WebSocketClient("wss://api-calotix-product.vercel.app"); // Menghubungkan ke server backend
 
     ws.onopen = () => {
       console.log("WebSocket connected");
@@ -167,10 +167,7 @@ const Payment = () => {
                     {event?.headline}
                   </h1>
                   <div className="overflow-hidden rounded-md mb-4">
-                    <img
-                      src={`http://localhost:8080/${event?.poster}`}
-                      alt=""
-                    />
+                    <img src={event?.poster} alt="" />
                   </div>
                   <div className="pl-2">
                     <p>
